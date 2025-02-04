@@ -3,11 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
         let peso = parseFloat(document.getElementById("peso").value);
         let altura = parseFloat(document.getElementById("altura").value);
         let resultado = document.getElementById("resultado");
-        let interpretacion = document.getElementById("resumen");
+        let resumen = document.getElementById("resumen");
 
-        if (!peso || !altura || altura <= 0) {
+        if (isNaN(peso) || isNaN(altura) || peso <= 0 || altura <= 0) {
             resultado.innerText = "Por favor, ingresa valores válidos.";
-            interpretacion.innerText = "";
+            resumen.innerText = "";
             return;
         }
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             mensaje = "Obesidad";
         }
 
-        interpretacion.innerText = `resumen: ${mensaje}`;
+        resumen.innerText = `Interpretación: ${mensaje}`;
     }
 
     document.querySelector("button").addEventListener("click", calcularIMC);
